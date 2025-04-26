@@ -17,6 +17,7 @@ return new class extends Migration
             $table->dateTime("date");
             $table->dateTime("deliveryDate");
             $table->string("technicals");
+            $table->string("deliveryTechnicals");
             $table->foreignId('maintenance_id')->constrained()->cascadeOnDelete();
             $table->foreignId('equipament_id')->constrained()->cascadeOnDelete();
             $table->foreignId('doctor_id')->constrained()->cascadeOnDelete();

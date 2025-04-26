@@ -27,22 +27,19 @@ class ServiceTableDay extends BaseWidget
             ])
             ->columns([
                 Tables\Columns\TextColumn::make('date')
-                    ->date()
+                    ->dateTime()
                     ->sortable()
                     ->label('Data'),
-                Tables\Columns\TextColumn::make('time')
-                    ->sortable()
-                    ->label('Horario'),
+                Tables\Columns\TextColumn::make('technicals')
+                    ->searchable()
+                    ->badge()
+                    ->label('Técnico'),
                 Tables\Columns\TextColumn::make('equipament.name')
                     ->label('Equipamento'),
                 Tables\Columns\TextColumn::make('customer.city')
                     ->label('Cidade'),
                 Tables\Columns\TextColumn::make('procedure.name')
                     ->label('Procedimento'),
-                Tables\Columns\TextColumn::make('user.name')
-                    ->searchable()
-                    ->sortable()
-                    ->label('Técnico'),
                 Tables\Columns\TextColumn::make('customer.name')
                     ->label('Hospital'),
 

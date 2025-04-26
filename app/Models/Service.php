@@ -25,6 +25,7 @@ class Service extends Model
         'removal',
         'comment',
         'technicals',
+        'deliveryTechnicals',
 
     ];
     protected $casts = [
@@ -32,6 +33,7 @@ class Service extends Model
         'delivery' => 'array',
         'removal' => 'array',
         'technicals' => Enums::class,
+        'deliveryTechnicals' => Enums::class,
 
     ];
 

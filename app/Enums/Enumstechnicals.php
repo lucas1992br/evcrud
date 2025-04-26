@@ -5,7 +5,7 @@ namespace App\Enums;
 use Filament\Support\Contracts\HasColor;
 use Filament\Support\Contracts\HasLabel;
 
-enum Enums : string implements HasLabel, HasColor
+enum Enumstechnicals : string implements HasLabel, HasColor
 {
     case EDER = 'EDER';
     case TAYNA = 'TAYNA';
@@ -31,7 +31,7 @@ enum Enums : string implements HasLabel, HasColor
     {
         return match ($this){
             self::EDER =>'info',
-            self::TAYNA =>'danger',
+            self::TAYNA =>'gray',
             self::ERIKA =>'primary',
             self::BONFIM =>'success',
             self::ROBERTO =>'gray',

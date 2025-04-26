@@ -30,61 +30,78 @@ class ServiceResource extends Resource
 
     protected static ?string $title = 'Atendimentos';
 
+    protected static ?string $modelLabel = 'Atendimento';
+
     protected static ?string $navigationLabel = 'Atendimentos';
 
     public static function form(Form $form): Form
     {
         return $form
             ->schema([
-                Forms\Components\TextInput::make('patient')
-                    ->required()
-                    ->maxLength(255),
                 Forms\Components\DateTimePicker::make('date')
+                    ->label('Data Procedimento')
                     ->required(),
                 Forms\Components\DateTimePicker::make('deliveryDate')
+                    ->label('Data Entrega')
                     ->required(),
-
+                Forms\Components\Select::make('technicals')
+                    ->label('Técnico do Atendimento')
+                    ->options(Enums::class)
+                    ->searchable()
+                    ->preload(),
+                Forms\Components\Select::make('deliveryTechnicals')
+                    ->label('Técnico da Entrega')
+                    ->options(Enums::class)
+                    ->searchable()
+                    ->preload(),
+                Forms\Components\TextInput::make('patient')
+                    ->label('Paciente')
+                    ->required()
+                    ->maxLength(255),
                 Forms\Components\Select::make('maintenance_id')
                     ->relationship('maintenance', 'name')
                     ->searchable()
                     ->preload()
-                    ->required(),
+                    ->required()
+                    ->label('CME'),
                 Forms\Components\Select::make('equipament_id')
                     ->relationship('equipament', 'name')
                     ->required()
                     ->searchable()
-                    ->preload(),
+                    ->preload()
+                    ->label('Equipamento'),
                 Forms\Components\Select::make('doctor_id')
                     ->relationship('doctor', 'name')
                     ->required()
                     ->searchable()
-                    ->preload(),
+                    ->preload()
+                    ->label('Médico'),
                 Forms\Components\Select::make('procedure_id')
                     ->relationship('procedure', 'name')
                     ->required()
                     ->searchable()
-                    ->preload(),
-                Forms\Components\Select::make('technicals')
-                    ->options(Enums::class)
-                    ->searchable()
-                    ->preload(),
+                    ->preload()
+                    ->label('Procedimento'),
                 Forms\Components\Select::make('customer_id')
                     ->relationship('customer', 'name')
                     ->required()
                     ->searchable()
-                    ->preload(),
+                    ->preload()
+                    ->label('Hospital / Clinica'),
                 Forms\Components\Select::make('agreement_id')
                     ->relationship('agreement', 'name')
                     ->required()
                     ->searchable()
-                    ->preload(),
+                    ->preload()
+                    ->label('Convênio '),
                 Forms\Components\Select::make('material_id')
                     ->relationship('material', 'name')
                     ->required()
                     ->searchable()
-                    ->preload(),
+                    ->preload()
+                    ->label('Material'),
                 Textarea::make('comment')
-                    ->required()
+                    ->label('Observações ')
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('cost')
                     ->multiple()
@@ -98,9 +115,6 @@ class ServiceResource extends Resource
                     ->directory('removal')
                     ->disk('public')
                     ->multiple(),
-                Forms\Components\FileUpload::make('cost')
-                    ->multiple(),
-
             ]);
     }
 
@@ -118,6 +132,10 @@ class ServiceResource extends Resource
                     ->label('Data'),
 
                 Tables\Columns\TextColumn::make('technicals')
+                    ->searchable()
+                    ->badge('primary')
+                    ->label('Técnico'),
+                Tables\Columns\TextColumn::make('deliveryTechnicals')
                     ->searchable()
                     ->badge('primary')
                     ->label('Técnico'),
@@ -153,6 +171,8 @@ class ServiceResource extends Resource
             ->filters([
                 Tables\Filters\SelectFilter::make('technicals')
                 ->options(Enums::class),
+                Tables\Filters\SelectFilter::make('deliveryTechnicals')
+                    ->options(Enums::class),
             ])
             ->actions([
                 Tables\Actions\ViewAction::make(),
