@@ -21,6 +21,10 @@ class CustomerResource extends Resource
 
     protected static ?string $navigationLabel = 'Hospitais / Clinicas';
 
+    protected static ?string $title = 'Hospitais / Clinicas';
+
+    protected static ?string $modelLabel = 'Hospital / Clinica';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

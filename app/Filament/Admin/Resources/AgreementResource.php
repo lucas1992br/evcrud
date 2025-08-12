@@ -21,6 +21,10 @@ class AgreementResource extends Resource
 
     protected static ?string $navigationLabel = 'Convenios';
 
+    protected static ?string $title = 'Convenios';
+
+    protected static ?string $modelLabel = 'Convenio';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

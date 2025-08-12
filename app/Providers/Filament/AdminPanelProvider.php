@@ -43,6 +43,7 @@ class AdminPanelProvider extends PanelProvider
             ->pages([
                 Pages\Dashboard::class,
             ])
+            ->darkMode(false)
             ->widgets([
                 DisplayCounts::class,
                 ServiceTableDay::class,
@@ -62,5 +63,6 @@ class AdminPanelProvider extends PanelProvider
             ->authMiddleware([
                 Authenticate::class,
             ]);
+
     }
 }

@@ -21,6 +21,10 @@ class MaintenanceResource extends Resource
 
     protected static ?string $navigationLabel = 'CME';
 
+    protected static ?string $title = 'CME';
+
+    protected static ?string $modelLabel = 'CME';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

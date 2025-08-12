@@ -23,7 +23,8 @@ class ServiceTableDay extends BaseWidget
             )
             ->filters([
                 Tables\Filters\SelectFilter::make('technicals')
-                    ->options(Enums::class),
+                    ->options(Enums::class)
+                    ->label('Técnicos'),
             ])
             ->columns([
                 Tables\Columns\TextColumn::make('date')

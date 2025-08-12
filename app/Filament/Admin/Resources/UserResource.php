@@ -19,7 +19,11 @@ class UserResource extends Resource
 
     protected static ?string $navigationGroup = 'Cadastros';
 
-    protected static ?string $navigationLabel = 'Técnicos';
+    protected static ?string $navigationLabel = 'Usuários';
+
+    protected static ?string $title = 'Usuários';
+
+    protected static ?string $modelLabel = 'Usuário';
 
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 

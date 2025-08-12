@@ -21,6 +21,10 @@ class ProcedureResource extends Resource
 
     protected static ?string $navigationLabel = 'Procedimentos';
 
+    protected static ?string $title = 'Procedimentos';
+
+    protected static ?string $modelLabel = 'Procedimento';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

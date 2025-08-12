@@ -102,19 +102,26 @@ class ServiceResource extends Resource
                     ->label('Material'),
                 Textarea::make('comment')
                     ->label('Observações ')
+                    ->required()
                     ->maxLength(255),
                 Forms\Components\FileUpload::make('cost')
+                    ->label('Folha de Gastos ')
+                    ->downloadable()
                     ->multiple()
                     ->directory('cost')
                     ->disk('public'),
                 Forms\Components\FileUpload::make('delivery')
+                    ->label('Entrega ')
                     ->directory('delivery')
                     ->disk('public')
-                    ->multiple(),
+                    ->multiple()
+                    ->downloadable(),
                 Forms\Components\FileUpload::make('removal')
+                    ->label('Retirada ')
                     ->directory('removal')
                     ->disk('public')
-                    ->multiple(),
+                    ->multiple()
+                    ->downloadable(),
             ]);
     }
 

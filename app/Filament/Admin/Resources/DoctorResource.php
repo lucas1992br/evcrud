@@ -20,6 +20,10 @@ class DoctorResource extends Resource
 
     protected static ?string $navigationLabel = 'Médicos';
 
+    protected static ?string $title = 'Médicos';
+
+    protected static ?string $modelLabel = 'Médico';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form

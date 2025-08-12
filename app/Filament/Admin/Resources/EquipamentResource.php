@@ -21,6 +21,10 @@ class EquipamentResource extends Resource
 
     protected static ?string $navigationLabel = 'Equipamentos';
 
+    protected static ?string $title = 'Equipamentos';
+
+    protected static ?string $modelLabel = 'Equipamento';
+
     protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
